@@ -12,7 +12,8 @@ int main(void)
 	update(0.1);
 
 	local();
-	
-	return 0;	
+	cout << "Now the global warming is " << ::warming << endl;
+
+	return 0;
 }
 
