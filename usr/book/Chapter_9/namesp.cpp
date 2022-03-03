@@ -1,13 +1,13 @@
-#include <iostream>
 #include "namesp.h"
+#include <iostream>
 
-namespace per
+namespace pers
 {
-	//using声明
-	using std::cout;
+	// using声明
 	using std::cin;
+	using std::cout;
 
-	void gerPerson(Person &rp)
+	void getPerson(Person &rp)
 	{
 		cout << "Enter the first name: ";
 		cin >> rp.fname;
@@ -16,7 +16,7 @@ namespace per
 	}
 	void showPerson(const Person &rp)
 	{
-		cout << rp.lname << " " << rp.fname << endl;
+		cout << rp.lname << " " << rp.fname << std::endl;
 	}
 }
 
@@ -26,7 +26,7 @@ namespace debts
 	{
 		getPerson(rd.name);
 		std::cout << "Enter your debt: ";
-		std::rd.amount;
+		std::cin >> rd.amount;
 	}
 	void showDebt(const Debt &rd)
 	{
@@ -36,7 +36,7 @@ namespace debts
 	double sumDebts(const Debt ar[], int n)
 	{
 		double total = 0;
-		for(int i = 0; i < n; i++)
+		for (int i = 0; i < n; i++)
 			total += ar[i].amount;
 		return total;
 	}
