@@ -10,8 +10,6 @@ namespace SALES
 	};
 }
 
-using namespace SALES;
-
 void setSales(Sales &s, const double ar[], int n);
 void setSales(Sales &s);
 void showSales(const Sales &s);
