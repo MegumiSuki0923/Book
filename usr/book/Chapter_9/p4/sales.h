@@ -1,3 +1,8 @@
+#ifndef __SALES_H__
+#define __SALES_H__
+
+#include <iostream>
+
 namespace SALES
 {
 	const int QUARTERS = 4;
@@ -8,8 +13,9 @@ namespace SALES
 		double max;
 		double min;
 	};
+	void setSales(Sales &s, const double ar[], int n);
+	void setSales(Sales &s);
+	void showSales(const Sales &s);
 }
 
-void setSales(Sales &s, const double ar[], int n);
-void setSales(Sales &s);
-void showSales(const Sales &s);
+#endif

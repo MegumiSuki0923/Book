@@ -1,52 +1,67 @@
 #include "sales.h"
-#include <iostream>
 
 using namespace std;
-using namespace SALES;
-
-void setSales(Sales &s, const double ar[], int n)
+namespace SALES
 {
-	int len = sizeof(ar) / sizeof(double);
-	for (int i = 0; i < len; i++)
-		s.sales[i] = ar[i];
-	if (len < 4)
+	void setSales(Sales &s, const double ar[], int n)
 	{
-		for (int i = len + 1; i < QUARTERS; i++)
-			s.sales[i] = 0;
+		int i;
+		double sum = 0.0;
+		for (i = 0; i < n && i < 4; i++)
+		{
+			s.sales[i] = ar[i];
+			sum += s.sales[i];
+		}
+
+		s.average = sum / i;
+		s.max = s.sales[0];
+		s.min = s.sales[0];
+
+		for(int k = 1; k < i; k++)
+		{
+			s.max = (s.max > s.sales[k]) ? s.max : s.sales[k];
+			s.min = (s.min < s.sales[k]) ? s.min : s.sales[k];
+		}
+
+		if(n < QUARTERS)
+		{
+			for(int k = n; k < QUARTERS; k++)
+				s.sales[k] = 0;
+		}
+
+		cout << "SET OK!" << endl;
 	}
-
-	double sum;
-	for (int i = 0; i < len; i++)
-		sum += s.sales[i];
-	s.average = sum / QUARTERS;
-
-	s.max = s.sales[0];
-	for (int i = 1; i < len; i++)
+	void setSales(Sales &s)
 	{
-		if (s.sales[i] > s.max)
-			s.max = s.sales[i];
+		double sum = 0.0;
+		cout << "Enter 4 sales quarters: " << endl;
+		for(int i = 0; i < QUARTERS; i++)
+		{
+			cout << "#" << i + 1 << ": ";
+			cin >> s.sales[i];
+			sum += s.sales[i];
+			if(i == 0)
+			{
+				s.max = s.sales[i];
+				s.min = s.sales[i];
+			}
+			else
+			{
+				s.max = (s.max > s.sales[i]) ? s.max : s.sales[i];
+				s.min = (s.min < s.sales[i]) ? s.min : s.sales[i];
+			}
+		}
+		s.average = sum / QUARTERS;
 	}
-
-	s.min = s.sales[0];
-	for (int i = 1; i < len; i++)
+	void showSales(const Sales &s)
 	{
-		if (s.sales[i] < s.min)
-			s.min = s.sales[i];
+		cout << "There are the sales: ";
+		for (int i = 0; i < QUARTERS; i++)
+			cout << s.sales[i] << " ";
+		cout << endl;
+
+		cout << "The average is " << s.average << endl;
+		cout << "The max is " << s.max << endl;
+		cout << "The min is " << s.min << endl;
 	}
-
-	cout << "SET OK!" << endl;
-}
-void setSales(Sales &s)
-{
-}
-void showSales(const Sales &s)
-{
-	cout << "There are the sales: ";
-	for (int i = 0; i < QUARTERS; i++)
-		cout << s.sales[i] << " ";
-	cout << endl;
-
-	cout << "The average is " << s.average << endl;
-	cout << "The max is " << s.max << endl;
-	cout << "The min is " << s.min << endl;
 }

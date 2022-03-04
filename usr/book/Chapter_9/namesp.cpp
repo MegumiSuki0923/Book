@@ -16,7 +16,7 @@ namespace pers
 	}
 	void showPerson(const Person &rp)
 	{
-		cout << rp.lname << " " << rp.fname << std::endl;
+		cout << rp.lname << " " << rp.fname;
 	}
 }
 
