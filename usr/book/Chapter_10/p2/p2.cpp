@@ -8,7 +8,7 @@ Person::Person(const string &ln, const char *fn)
 
 void Person::Show() const
 {
-	if(lname == "" && fname[0] == '\0')
+	if (lname == "" && fname[0] == '\0')
 		cout << "NO NAME!" << endl;
 	else
 	{
@@ -19,11 +19,11 @@ void Person::Show() const
 
 void Person::FormalShow() const
 {
-	if(lname == "" && fname[0] == '\0')
+	if (lname == "" && fname[0] == '\0')
 		cout << "NO NAME!" << endl;
 	else
 	{
 		cout << "lastname firstname format:" << endl;
-		cout << lname << " " << fname;
+		cout << lname << " " << fname << endl;
 	}
 }
