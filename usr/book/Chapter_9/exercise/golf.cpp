@@ -35,6 +35,7 @@ void handicap(golf &g, int hc)
 
 void showgolf(const golf &g)
 {
-	cout << "name: " << g.fullname << endl << "handicap: " << g.handicap << endl;
+	cout << "name: " << g.fullname << endl;
+	cout << "handicap: " << g.handicap << endl;
 	cout << "---------Already done---------" << endl;
 }
