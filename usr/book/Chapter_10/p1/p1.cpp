@@ -1,6 +1,4 @@
 #include "p1.h"
-#include <iostream>
-#include <string>
 
 Bank::Bank(const char *name, const char *account, double balance)
 {

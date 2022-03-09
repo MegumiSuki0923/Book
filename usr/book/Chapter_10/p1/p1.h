@@ -1,6 +1,9 @@
 #ifndef __P1_H__
 #define __P1_H__
 
+#include <iostream>
+#include <cstring>
+
 class Bank
 {
 private:
