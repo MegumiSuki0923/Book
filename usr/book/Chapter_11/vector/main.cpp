@@ -35,10 +35,16 @@ int main()
 		}
 
 		cout << "After " << steps << " steps, the sujects has following location.\n";
+		cout << result;
+		result.polar_mode();
 		cout << result << endl;
 
+		steps = 0;
+		result.reset(0.0, 0.0);
 		cout << "Enter target distance(q to quit): ";
 	}
+
+	cout << "Bye!" << endl;
 
 	return 0;
 }

@@ -118,7 +118,7 @@ namespace VECTOR
 		if(v.mode == Vector::RECT)
 			os << "x = " << v.x << " y = " << v.y << endl;
 		else if(v.mode == Vector::POL)
-			os << "mag = " << v.mag << " ang = " << v.mag << endl;
+			os << "mag = " << v.mag << " ang = " << v.ang << endl;
 		else
 			os << "Invaild mode" << endl;
 
