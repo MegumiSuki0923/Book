@@ -2,6 +2,7 @@
 #include "vector.h"
 #include <cstdlib>
 #include <ctime>
+#include <fstream>
 
 using namespace VECTOR;
 
@@ -13,6 +14,9 @@ int main()
 	Vector step;
 	double direction;
 	unsigned long steps = 0;
+
+	ofstream fout;
+	fout.open("randwalk.txt");
 
 	//改变随机数的种子 没有这行的话，你编译一次以后，值一直不会变
 	srand(time(NULL));
@@ -26,8 +30,12 @@ int main()
 		else if (dstep <= 0)
 			break;
 
+		fout << "Target distance: " << target << ", step size: " << dstep << endl;
+
 		while (result.magval() < target)
 		{
+						       //这里发生了重载 左侧是oftream 右侧是类
+			fout << steps << ": (x, y) = " << result << endl;
 			direction = rand() % 360;
 			step.reset(dstep, direction, Vector::POL);
 			result = result + step;
@@ -36,8 +44,15 @@ int main()
 
 		cout << "After " << steps << " steps, the sujects has following location.\n";
 		cout << result;
+
+		fout << "After " << steps << " steps, the sujects has following location.\n";
+		fout << result;
+
 		result.polar_mode();
 		cout << result << endl;
+
+		fout << result;
+		fout << "Average outward distance per step = " << result.magval() /steps << endl;
 
 		steps = 0;
 		result.reset(0.0, 0.0);
