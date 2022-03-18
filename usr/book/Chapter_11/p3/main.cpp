@@ -20,8 +20,10 @@ int main()
 
 	srand(time(NULL));
 
-	cout << "How many times do you want to try: " << endl;
+	cout << "How many times do you want to try: ";
 	cin >> N;
+	cout << "Enter target distance: ";
+	cin >> target;
 	cout << "Enter the step length: ";
 	cin >> dstep;
 
