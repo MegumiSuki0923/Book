@@ -3,7 +3,7 @@
 
 int StringBad::num_strings = 0;
 
-StringBad::StringBad(const char *s) //StringBad str("hello world)
+StringBad::StringBad(const char *s) // StringBad str("hello world)
 {
 	len = strlen(s);
 	str = new char[len + 1];
@@ -36,12 +36,14 @@ StringBad::~StringBad()
 	cout << "\"" << str << "\" object deleted." << endl;
 	--num_strings;
 	cout << num_strings << " left." << endl;
-	delete []str;
+	delete[] str;
 }
 
-StringBad StringBad::operator=(const StringBad &st)
+StringBad &StringBad::operator=(const StringBad &st)
 {
-	delete []str;
+	if (this == &st)
+		return *this;
+	delete[] str;
 	len = st.len;
 	str = new char[len + 1];
 	strcpy(str, st.str);
