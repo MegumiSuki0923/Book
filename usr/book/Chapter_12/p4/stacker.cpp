@@ -4,45 +4,27 @@
 
 using namespace std;
 
+const int MAX = 5;
+
 int main(void)
 {
-	char ch;
-	unsigned long po;
-	Stack st;
+	Stack st(MAX);
+	Item item;
 
-	cout << "Please enter A to push to stack,\n"
-		 << "P to pop from stack, Q to quit.\n";
-
-	while (cin >> ch && toupper(ch) != 'Q')
+	for (int i = 0; i < MAX; i++)
 	{
-		//只要缓存区里不是回车，就把它消耗掉
+		cout << "Enter a number you want to push to stack: " << endl;
+		cin >> item;
 		while (cin.get() != '\n')
 			continue;
-		switch (ch)
-		{
-		case 'A':
-		case 'a':
-			cout << "Enter a number you want to push to stack: \n";
-			cin >> po;
-			if (st.isfull())
-				cout << "Stack already full\n";
-			else
-				st.push(po);
-			break;
-		case 'P':
-		case 'p':
-			if (st.isempty())
-				cout << "Stack is empty\n";
-			else
-			{
-				st.pop(po);
-				cout << po << " is poped\n";
-			}
-			break;
-		}
-		cout << "Please enter A to push to stack,\n"
-			 << "P to pop from stack, Q to quit.\n";
+		st.push(item);
 	}
 
+	Stack st_new(st);
+	for (int i = 0; i < st_new.size; i++)
+	{
+		st_new.pop(item);
+		cout << item << " is poped." << endl;
+	}
 	return 0;
 }
