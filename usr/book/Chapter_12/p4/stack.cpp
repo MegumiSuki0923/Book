@@ -1,39 +1,70 @@
 #include "stack.h"
 
-Stack::Stack()
+Stack::Stack(int n)
 {
+	pitems = new Item[n];
+	size = n;
+
 	//让栈顶的指针指向栈中最开始的位置
 	top = 0;
 }
 
-bool Stack::isEmpty() const
+Stack::Stack(const Stack &st)
+{
+	pitems = new Item[st.size];
+	for (int i = 0; i < st.size; i++)
+		pitems[i] = st.pitems[i];
+	size = st.size;
+	top = st.top;
+}
+
+Stack::~Stack()
+{
+	delete[] pitems;
+}
+
+bool Stack::isempty() const
 {
 	return top == 0;
 }
 
-bool Stack::isFull() const
+bool Stack::isfull() const
 {
 	return top == MAX;
 }
 
-bool Stack::push(Items &item)
+bool Stack::push(const Item &item)
 {
-	if(top < MAX)
+	if (top < MAX)
 	{
-		items[top++] = item;
+		pitems[top++] = item;
 		return true;
 	}
 	else
 		return false;
 }
 
-bool Stack::pop(Items &item)
+bool Stack::pop(Item &item)
 {
-	if(top > 0)
+	if (top > 0)
 	{
-		item = items[--top];
+		item = pitems[--top];
 		return true;
 	}
 	else
 		return false;
+}
+
+Stack &Stack::operator=(const Stack &st)
+{
+	if (this == &st)
+		return *this;
+
+	delete[] pitems;
+	pitems = new Item[st.size];
+	for (int i = 0; i < st.size; i++)
+		pitems[i] = st.pitems[i];
+	size = st.size;
+	top = st.top;
+	return *this;
 }
