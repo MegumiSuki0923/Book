@@ -1,5 +1,5 @@
-#ifndef __STRING_H__
-#define __STRING_H__
+#ifndef __STRING2_H__
+#define __STRING2_H__
 
 #include <iostream>
 
@@ -33,6 +33,12 @@ public:
 	friend istream &operator>>(istream &is, String &st);
 
 	static int HowMany();
+
+	friend String operator+(const char *str, const String &st);
+	String operator+(const String &st);
+	void Stringlow();
+	void Stringup();
+	int has(char ch) const;
 };
 
 #endif

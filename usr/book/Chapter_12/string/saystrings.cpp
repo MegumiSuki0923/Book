@@ -1,31 +1,39 @@
 #include "string.h"
 #include <iostream>
 
-void callme1(const StringBad &sb);
-void callme2(const StringBad sb);
+const int MaxLen = 81;
 
 int main(void)
 {
-	StringBad headline1("Hello world");
-	StringBad headline2("Good morning");
-	StringBad sports("I love you!");
+	String name;
 
-	cout << "headline1: " << headline1 << endl;
-	cout << "headline2: " << headline2 << endl;
-	cout << "sports: " << sports << endl;
+	cout << "Hi, what is your name?" << endl;
+	cin >> name;
 
-	callme1(headline1);
-	callme2(headline2);
+	cout << name << ", please enter a string: " << endl;
+	String saystrings;
+	char temp[MaxLen];
+
+	cin.get(temp, MaxLen);
+	while(cin && cin.get() != '\n')
+		continue;
+
+	saystrings = temp;
+	cout << "Here is your saystrings:" << endl;
+	cout << saystrings[0] << ": " << saystrings << endl;
+
+	String str = "Hello world";
+	if(saystrings.length() < str.length())
+		cout << "str is longer" << endl;
+	else
+		cout << "saystrings is longer" << endl;
+
+	if(saystrings < str)
+		cout << "saystrings's first letter is smaller than str's" << endl;
+	else
+		cout << "saystrings's first letter is bigger than str's" << endl;
+
+	cout << "This program use " << String::HowMany() << " objects." << endl;
 
 	return 0;
-}
-
-void callme1(const StringBad &sb)
-{
-	cout << "String passed by reference: " << sb << endl;
-}
-
-void callme2(const StringBad sb)
-{
-	cout << "String passed by value: " << sb << endl;
 }

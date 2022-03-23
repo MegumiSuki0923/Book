@@ -1,5 +1,6 @@
-#include "string.h"
+#include "string2.h"
 #include <cstring>
+#include <cctype>
 
 int String::num_strings = 0;
 
@@ -97,4 +98,53 @@ istream &operator>>(istream &is, String &s)
 	}
 
 	return is;
+}
+
+String operator+(const char *str, const String &st)
+{
+	String temp;
+
+	temp.len = strlen(str) + st.len;
+	temp.str = new char[temp.len + 1];
+	strcpy(temp.str, str);
+	strcat(temp.str, st.str);
+
+	return temp;
+}
+
+String String::operator+(const String &st)
+{
+	String temp;
+
+	temp.len = len + st.len;
+	temp.str = new char[temp.len + 1];
+	strcpy(temp.str, str);
+	strcat(temp.str, st.str);
+
+	return temp;
+}
+
+void String::Stringup()
+{
+	for(int i = 0; i < len; i++)
+		str[i] = toupper(str[i]);
+}
+
+void String::Stringlow()
+{
+	for(int i = 0; i < len; i++)
+                str[i] = tolower(str[i]);
+}
+
+int String::has(char c) const
+{
+	int count = 0;
+
+	for(int i = 0; i < len; i++)
+	{
+		if(str[i] == c)
+			count++;
+	}
+
+	return count;
 }
