@@ -21,7 +21,7 @@ int main(void)
 	}
 
 	Stack st_new(st);
-	for (int i = 0; i < st_new.size; i++)
+	for (int i = 0; i < MAX; i++)
 	{
 		st_new.pop(item);
 		cout << item << " is poped." << endl;
