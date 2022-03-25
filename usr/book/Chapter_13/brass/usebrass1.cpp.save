@@ -1,0 +1,17 @@
+#include "brass.h"
+#include <iostream>
+
+using namespace std;
+
+int main(void)
+{
+	Brass Rick("Rick", 123456, 4000.00);
+	BrassPlus Jack("Jack", 654321, 3000.00);
+
+	Rick.ViewAcct();
+	cout << endl;
+	Jack.ViewAcct();
+	cout << endl;
+
+    return 0;
+}
