@@ -14,3 +14,6 @@ RatedPlayer::RatedPlayer(unsigned int r, const string &fn, const string &ln, boo
 {
 	rating = r;
 }
+
+RatedPlayer::RatedPlayer(unsigned int r, const TableTennisPlayer &tp) : TableTennisPlayer(tp), rating(r)
+{}
