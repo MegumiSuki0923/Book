@@ -7,7 +7,7 @@ Port::Port(const char *br, const char *st, int b)
 	strcpy(brand, br);
 	strncpy(style, st, 20);
 	if (strlen(st) >= 20)
-		style[10] = '\0';
+		style[19] = '\0';
 	else
 		style[strlen(st)] = '\0';
 	bottles = b;
@@ -25,7 +25,7 @@ Port &Port::operator=(const Port &p)
 {
 	if (this == &p)
 		return *this;
-	delete[] brand;
+	delete []brand;
 	brand = new char[strlen(p.brand) + 1];
 	strcpy(brand, p.brand);
 	strcpy(style, p.style);
@@ -42,6 +42,12 @@ Port &Port::operator+=(int b)
 Port &Port::operator-=(int b)
 {
 	bottles -= b;
+	if(bottles <= 0)
+	{
+		cout << "Too small!" << endl;
+		bottles = 0;
+		return *this;
+	}
 	return *this;
 }
 
@@ -64,16 +70,26 @@ VintagePort::VintagePort() : Port()
 	year = 0;
 }
 
-VintagePort::VintagePort(const char *br, int b, const char *nm, int y) : Port(br, "none", b)
+VintagePort::VintagePort(const char *br, const char *st, int b, const char *nn, int y) : Port(br, st, b)
 {
-	nickname = NULL;
-	year = 0;
+	nickname = new char[strlen(nn) + 1];
+	strcpy(nickname, nn);
+	year = y;
+}
+
+VintagePort::VintagePort(const VintagePort &vp) : Port(vp)
+{
+	nickname = new char[strlen(vp.nickname) + 1];
+	strcpy(nickname, vp.nickname);
+	year = vp.year;
 }
 
 VintagePort &VintagePort::operator=(const VintagePort &vp)
 {
+	if(this == &vp)
+		return *this;
 	Port::operator=(vp);
-	delete[] nickname;
+	delete []nickname;
 	nickname = new char[strlen(vp.nickname) + 1];
 	strcpy(nickname, vp.nickname);
 	year = vp.year;
@@ -91,6 +107,6 @@ void VintagePort::Show() const
 ostream &operator<<(ostream &os, const VintagePort &vp)
 {
 	os << (const Port &)vp;
-	os << " ," << vp.nickname << " ," << vp.year;
+	os << ", " << vp.nickname << ", " << vp.year;
 	return os;
 }
