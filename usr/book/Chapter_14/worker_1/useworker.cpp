@@ -1,29 +1,55 @@
 #include "worker.h"
 #include <iostream>
+#include <cstring>
 
 using namespace std;
 
-const int LIM = 4;
+const int SIZE = 3;
 
 int main(void)
 {
-	Waiter bob("Bob", 314, 5);
-	Singer bev("Bev", 522, 3);
-
-	Waiter w_temp;
-	Singer s_temp;
-
-	Worker *pd[LIM] = {&bob, &bev, &w_temp, &s_temp};
+	Worker *lolas[SIZE];
 
 	int i;
-	for(i = 2; i < LIM; i++)
-		pd[i]->Set();
-
-	for(i = 0; i < LIM; i++)
+	for(i = 0; i < SIZE; i++)
 	{
-		pd[i]->Show();
+		char choice;
+		cout << "Enter the emploee category: " << endl;
+		cout << "w: waiter	s:singer	t:singing waiter	q:quit" << endl;
+		cin >> choice;
+
+		while(strchr("wstq", choice) == NULL)
+		{
+			cout << "Please enter a w, s, t ,q: ";
+			cin >> choice;
+		}
+		if(choice == 'q')
+			break;;
+		switch(choice)
+		{
+			case 'w':
+				lolas[i] = new Waiter;
+				break;
+			case 's':
+				lolas[i] = new Singer;
+				break;
+			case 't':
+				lolas[i] = new SingingWaiter;
+				break;
+		}
+		while(cin.get() != '\n');
+		lolas[i]->Set();
+	}
+
+	cout << endl << "Here is your staff: " << endl;
+	for(i = 0; i < SIZE; i++)
+	{
+		lolas[i]->Show();
 		cout << endl;
 	}
+
+	for(i = 0; i < SIZE; i++)
+		delete lolas[i];
 
 	return 0;
 }
