@@ -32,7 +32,7 @@ private:
 
 public:
 	VintagePort();
-	VintagePort(const char *br, int b, const char *nm, int y);
+	VintagePort(const char *br, const char *st, int b, const char *nn, int y);
 	VintagePort(const VintagePort &vp);
 	~VintagePort() { delete[] nickname; }
 	VintagePort &operator=(const VintagePort &vp);
