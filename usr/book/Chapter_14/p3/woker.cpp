@@ -1,14 +1,13 @@
 #include "queue.h"
 
-using namespace std;
-
 void Worker::Set()
 {
 	cout << "Enter worker's fullname: ";
 	getline(cin, fullname);
 	cout << "Enter worker's ID:";
 	cin >> id;
-	while(cin.get() != '\n');
+	while (cin.get() != '\n')
+		;
 }
 
 void Worker::Show() const
