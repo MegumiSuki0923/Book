@@ -14,7 +14,7 @@ class Worker
 	public:
 		Worker() : fullname("No one"), id(0) {}
 		Worker(const string &s, long n) : fullname(s), id(n) {}
-		~Worker();
+		~Worker() {};
 		void Set();
 		void Show() const;
 };
