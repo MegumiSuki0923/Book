@@ -1,0 +1,20 @@
+1)
+ArrayTP<string, 10> aa;
+
+2)
+Stack<ArrayTP<double, 10>> stack_arr_aa;
+
+3)
+ArrayTP<Stack<Work *> , 10> arr_stack_ptr;
+
+4)
+P579:
+	ArrayTP<int, 10>
+	ArrayTP<double, 0>
+	ArrayTP<int, 5>
+	ArrayTP<ArrayTP<int, 5>, 10
+	一共创建了四个模板类的定义>
+
+6)
+	多重继承时，从多个类(他们的基类相同)派生出来的对象，只继承一个基类对象
+	即当派生类的多个基类有共同的基类

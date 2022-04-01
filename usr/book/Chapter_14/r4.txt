@@ -1,0 +1,15 @@
+Stack<Work *> sw
+
+class Stack<Work *>
+{
+	private:
+		enmu{MAX = 10};
+		Work *items[MAX];
+		int top;
+	public:
+		Stack();
+		bool isempty();
+		bool isfull();
+		bool push(const Work * &item);
+		bool pop(Work * &item);
+};

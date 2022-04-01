@@ -1,0 +1,15 @@
+Gloam::Gloam(int g, const char *s) : glip(g), fb(s)
+{
+	fb(s)调用Frabjous(const char *s)
+}
+
+Gloam::Gloam(int g, const Frabjous &f) : glip(s), fb(f)
+{
+	调用Frabjous隐式的默认复制构造函数
+}
+
+void Gloam::tell()
+{
+	cout << "glip: " << glip << endl;
+	fb.tell();
+}
