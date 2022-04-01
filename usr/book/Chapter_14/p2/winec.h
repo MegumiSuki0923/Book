@@ -37,18 +37,16 @@ T2 &Pair<T1, T2>::second()
 	return b;
 }
 
-class Wine
+class Wine : private string, private PairArray
 {
 	private:
-		string label;
-		PairArray info;
 		int year;
 	public:
 		Wine(const char *l, int y, const int yr[], const int bot[]);
 		Wine(const char *l, int y);
 		void GetBottles();
 		void Show() const;
-		const string &Label() const {return label;}
+		const string &Label() const;
 		int sum() const;
 };
 

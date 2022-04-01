@@ -10,7 +10,7 @@ Wine::Wine(const char *l, int y) : label(l), year(y), info(ArrayInt(0, 0), Array
 
 void Wine::GetBottles()
 {
-	cout << "Enter " label << " data for " << year << " year(s): " << endl;
+	cout << "Enter " << label << " data for " << year << " year(s): " << endl;
 	for(int i = 0; i < year; i++)
 	{
 		cout << "Enter year: ";
@@ -20,17 +20,15 @@ void Wine::GetBottles()
 	}
 }
 
-const string &Wine::Label() const
-{
-	return label;
-}
-
-void Wine::sum() const
+int Wine::sum() const
 {
 	return info.second().sum();
 }
 
-const Wine::Show() const
+void Wine::Show() const
 {
-	cout << 
+	cout << "Wine: " << label << endl;
+		cout << "	 Year	Bottles" << endl;
+	for(int i = 0; i < year; i++)
+		cout << "	" << info.first()[i] << "	" << info.second()[i] << endl;
 }
