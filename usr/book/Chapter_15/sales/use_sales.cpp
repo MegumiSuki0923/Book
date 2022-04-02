@@ -41,7 +41,27 @@ int main(void)
     {
         cout << bad.what() << endl;
         cout << "Bad index: " << bad.bi_val() << endl;
-    }   
+    }
+
+	cout << "----------------------------------------" << endl;
+	try
+	{
+		sales1[20] = 200;
+		sales2[2] = 30;
+	}
+	catch(LabeledSales::nbad_index &bad)
+    {
+     	cout << bad.what() << endl;
+        cout << "Company: " << bad.label_val() << endl;
+        cout << "Bad index: " << bad.bi_val() << endl;
+
+    }
+    catch(Sales::bad_index &bad)
+    {
+     	cout << bad.what() << endl;
+        cout << "Bad index: " << bad.bi_val() << endl;
+    }
+
 
     return 0;
 }
