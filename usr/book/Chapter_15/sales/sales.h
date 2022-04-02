@@ -45,7 +45,7 @@ class LabeledSales : public Sales
 		virtual double operator[](int i) const;
 		virtual double &operator[](int i);
 
-		class nbad_index : Sales::bad_index
+		class nbad_index : public Sales::bad_index
 		{
 			private:
 				string lbl;

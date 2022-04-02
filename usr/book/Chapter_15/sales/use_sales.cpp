@@ -33,10 +33,15 @@ int main(void)
     catch(LabeledSales::nbad_index &bad)
     {
         cout << bad.what() << endl;
-        cout << "Company"
+        cout << "Company: " << bad.label_val() << endl;
+        cout << "Bad index: " << bad.bi_val() << endl;
+
     }
     catch(Sales::bad_index &bad)
-    {}   
+    {
+        cout << bad.what() << endl;
+        cout << "Bad index: " << bad.bi_val() << endl;
+    }   
 
     return 0;
 }
