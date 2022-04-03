@@ -36,7 +36,6 @@ class bad_gmean : public mean
 void mean::show() const
 {
 	cout << "v1 = " << v1 << ", v2 = " << v2 << endl;
-	cout << what() << endl;
 }
 
 void bad_hmean::show() const
@@ -61,9 +60,9 @@ int main(void)
 		try
 		{
 			z = hmean(x, y);
-			cout << "\nHarmonic mean of " << x << " and " << y << " is " << z << endl;
+			cout << "Harmonic mean of " << x << " and " << y << " is " << z << endl;
 			z = gmean(x, y);
-			cout << "g mean of " << x << " and " << y << " is " << z << endl;
+			cout << "gmean of " << x << " and " << y << " is " << z << endl;
 		}
 		catch(mean &m)
 		{
