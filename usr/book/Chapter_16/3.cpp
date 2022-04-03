@@ -69,7 +69,7 @@ int main(void)
                 cout << guesses << " bad guesses left." << endl;
             }
         }
-        if(attempt == target && guesses >= 0)
+        if(attempt == target && guesses > 0)
             cout << "You're great!" << endl;
         else
         {
