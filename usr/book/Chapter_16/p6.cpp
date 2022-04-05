@@ -1,5 +1,6 @@
 #include <iostream>
 #include <list>
+#include <queue>
 
 using namespace std;
 
@@ -32,19 +33,21 @@ int main(void)
 	cout << "Enter maximum size of queue: ";
 	cin >> qs;
 
-	Queue line(qs);
+	queue<Item> lines;
 
-	while(!line.isfull())
+	while(lines.size() != qs)//while(!line.isfull())
 	{
 		temp.set(i++);
-		line.enqueue(temp);
+		lines.push(temp);
 		customers++;
 	}
 	cout << "Customers: " << customers << endl;
 
-	while(!line.isempty())
+	while(lines.empty())
 	{
-		line.dequeue(temp);
+		//line.dequeue(temp);
+		temp = lines.front();
+		lines.pop();
 		customers--;
 	}
 	cout << "Now customers: " << customers << endl;
