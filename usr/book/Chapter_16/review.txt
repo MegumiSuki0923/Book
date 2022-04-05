@@ -1,0 +1,19 @@
+1)
+class RQ1
+{
+	private:
+		string st;
+	public:
+		RQ1() : st(""){}
+		RQ1(const char *s) : st(s){}
+};
+
+3)
+#include <string>
+#include <cctype>
+
+void ToUpper(string &str)
+{
+	for(int i = 0; i < str.size(); i++)
+		str[i] = toupper(str[i]);
+}
