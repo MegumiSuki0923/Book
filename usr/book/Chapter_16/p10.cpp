@@ -10,11 +10,11 @@ struct Review
 {
 	string title;
 	int rating;
-	double price;
+	int price;
 };
 
 bool FillReview(Review &r);
-void ShowReview(const Review &r);
+void ShowReview(const Review &pt);
 bool worseThan(const shared_ptr<Review> &pt1, const shared_ptr<Review> &pt2);
 bool cheaperThan(const shared_ptr<Review> &pt1, const shared_ptr<Review> &pt2);
 
