@@ -26,7 +26,7 @@ int main(void)
         cout << "Here are the current contents of file " << file << endl;
         while (finout.read((char *)&pl, sizeof pl))
             cout << ct++ << ": " << "Name: " << pl.name << "  population: " << setprecision(0) << pl.population << setprecision(1) << "  g: " << pl.g << endl;
-        
+
         if(finout.eof())
             finout.clear();
     }
@@ -57,10 +57,11 @@ int main(void)
     finout.seekp(place);
     finout.write((char *)&pl, sizeof pl);
 
+    finout.seekg(0);
     cout << "Here are the contents of file " << file << endl;
     ct = 0;
     while (finout.read((char *)&pl, sizeof pl))
-        cout << ct++ << ": " << "Name: " << pl.name << "  population: " << setprecision(0) << pl.population << setprecision(1) << "  g: " << pl.g << endl;
+        cout << ct++ << ": " << "Name: " << pl.name << "  population: " << setprecision(0) << pl.population << "  g: " << setprecision(1) << pl.g << endl;
 
     finout.close();
 
