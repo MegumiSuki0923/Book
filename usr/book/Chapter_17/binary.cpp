@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
+#include <iomanip>
 
 using namespace std;
 
@@ -22,7 +23,7 @@ int main(void)
 	{
 		cout << "Here are the current contents of file " << file << endl;
 		while(fin.read((char *)&pl, sizeof pl))
-			cout << "Name: " << pl.name << "  population: " << pl.population << "  g: " << pl.g << endl;
+			cout << "Name: " << pl.name << "  population: " << setprecision(2) << pl.population << "  g: " << pl.g << endl;
 		fin.close();
 	}
 
@@ -34,11 +35,11 @@ int main(void)
 		exit(0);
 	}
 
-	while(cin.get() != '\n');
 	cout << "Enter the planet's name (Enter blank line to quit): ";
 	cin.get(pl.name, 20);
 	while(pl.name[0] != '\0')
 	{
+		while(cin.get() != '\n');
 		cout << "Enter the plannet's population: ";
 		cin >> pl.population;
 		cout << "Enter the planet's g: ";
@@ -56,7 +57,7 @@ int main(void)
         {
                 cout << "Here are the contents of file " << file << endl;
                 while(fin.read((char *)&pl, sizeof pl))
-	                cout << "Name: " << pl.name << "  population: " << pl.population << "  g: " << pl.g << endl;
+	                cout << "Name: " << pl.name << "  population: " << setprecision(0) << pl.population << "  g: " << pl.g << endl;
                 fin.close();
         }
 
