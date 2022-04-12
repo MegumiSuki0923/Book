@@ -1,0 +1,8 @@
+12 -> int 		-> %d
+0x3 -> unsigned int 	-> %#x
+'C' -> char 		-> %c
+2.34E07 -> double 	-> %e
+'\040' -> char 		-> %c
+7.0 -> double 		-> %f
+6L -> long 		-> %ld
+6.0f -> float 		-> %f
