@@ -9,7 +9,7 @@ int main(void)
 	{
 		year++;
 		printf("%d year\n", year);
-		cl_money += (1 + 0.08)*cl_money;
+		cl_money += 0.08*cl_money;
 		cl_money -= 100000;
 	}
 
