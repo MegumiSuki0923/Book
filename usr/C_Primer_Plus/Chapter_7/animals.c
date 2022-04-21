@@ -6,7 +6,7 @@ int main(void)
 	char ch;
 
 	printf("Please enter a character to show animal (enter # to quit):\n");
-	while(ch = getchar() != '#')
+	while((ch = getchar()) != '#')
 	{
 		if(ch == '\n')
 			continue;
