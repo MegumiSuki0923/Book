@@ -23,6 +23,8 @@ int main(void)
 				printf("I love all animals\n");
 				break;
 		}
+		while(getchar() != '\n')
+			continue;
 	}
 
 	return 0;
