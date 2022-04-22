@@ -2,8 +2,7 @@
 
 int main(void)
 {
-	int n_spaces, n_lines, n_other;
-	n_spaces = n_lines = n_other = 0;
+	int n_spaces = 0, n_lines = 0, n_other = 0;
 	char ch;
 
 	printf("Please enter a string (enter # to quit):\n");
