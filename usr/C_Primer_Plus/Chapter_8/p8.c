@@ -57,9 +57,7 @@ char get_first(void)
 	int input;
 
 	while(isspace(input = getchar()));
-
-	input = getchar();
-
+	
 	while(getchar() != '\n')
 		continue;
 
@@ -73,7 +71,7 @@ char get_choice(void)
 	ch = get_first();
 	while(ch != 'a' && ch != 's' && ch != 'm' && ch != 'd' && ch != 'q')
 	{
-		printf("We enter a, s, m, d or q.\n");
+		printf("Please enter a, s, m, d or q.\n");
 		ch = get_first();
 	}
 
