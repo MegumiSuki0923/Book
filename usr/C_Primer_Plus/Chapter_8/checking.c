@@ -29,8 +29,16 @@ int main(void)
 		else
 		{
 			sum = sum_squares(start, stop);
+			printf("Sum is %d.\n", sum);
 		}
+
+		printf("Please enter the next limits:\n");
+		printf("lower limit: ");
+        	start = get_int();
+        	printf("upper limit: ");
+        	stop = get_int();
 	}
+	printf("\n");
 
 	return 0;
 }
