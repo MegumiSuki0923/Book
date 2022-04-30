@@ -16,7 +16,12 @@ int main(void)
 
 void chline(char ch, int x, int y)
 {
-        for (int i = x; i < y; i++)
-                printf("%c", ch);
-        printf("\n");
+        for (int i = 0; i < y; i++)
+	{
+		if(i >= x)
+                	printf("%c", ch);
+		else
+			printf("*");
+        }
+	printf("\n");
 }

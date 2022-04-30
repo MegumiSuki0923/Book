@@ -9,7 +9,7 @@ int main(void)
         printf("Enter the x and y:\n");
         scanf("%lf %lf", &x, &y);
 
-        printf("The harmonic mean of %.2lf and %.2lf is %.2lf\n", x, y, harmonic(x, y));
+        printf("The harmonic mean of %.2lf and %.2lf is %.4lf\n", x, y, harmonic(x, y));
 
         return 0;
 }
