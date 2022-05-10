@@ -1,0 +1,27 @@
+6)
+a. &grid[22][56]
+
+b. &grid[22][0]
+   *(grid+22)
+
+c. grid[0][0]
+   *grid
+   grid[0]
+
+7)
+a. int digis[10]
+b. float rates[6]
+c. int mat[3][5]
+d. char *psa[20]
+e. char (*pstr)[20]
+
+8)
+a. int ar[6] = {1, 2, 4 , 8, 16, 32};
+b. ar[2]
+c. int ar[100] = {[99] = -1};
+
+9)
+0 ~ 9
+
+10)
+
