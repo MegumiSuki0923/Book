@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+#define SIZE	81
+
+int main(void)
+{
+	char input[SIZE];
+
+	puts("Please enter a string:");
+	gets(input);
+
+
+	return 0;
+}
