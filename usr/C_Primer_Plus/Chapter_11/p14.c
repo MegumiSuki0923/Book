@@ -38,8 +38,8 @@ int my_atoi(char *ptr)
 	{
 		while(isdigit(*ptr))
 		{
-			ptr++;
 			num = (num * 10) + (*ptr - '0');
+			ptr++;
 		}
 	}
 
