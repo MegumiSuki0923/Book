@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+#define SIZE	81
+
+int main(void)
+{
+	char input[SIZE];
+
+	puts("Please enter a string:");
+	while(gets(input) && input[0])
+	{
+		reverse(input);
+		puts("Now the input is");
+		puts(input);
+	}
+
+	return 0;
+}
+
+v
