@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "b.h"
 
-int time = 10;
+int times = 10;
 
 int main(void)
 {
