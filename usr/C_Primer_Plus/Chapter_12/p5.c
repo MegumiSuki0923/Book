@@ -6,17 +6,17 @@
 
 int main(void)
 {
-	srand(time(0));
+	srand((unsigned int)time(0));
 	int numbers[SIZE];
 
 	for(int i = 0; i < SIZE; i++)
 		numbers[i] = rand() % 10 + 1;
 
 	printf("The original list is\n");
-	for(int i = 1; i <= SIZE; i++)
+	for(int i = 0; i < SIZE; i++)
 	{
-		printf("%d ", numbers[i - 1]);
-		if(i % 10 == 0)
+		printf("%d ", numbers[i]);
+		if(i % 10 == 9)
 			putchar('\n');
 	}
 
@@ -35,10 +35,10 @@ int main(void)
 	}
 
 	printf("After sort\n");
-       	for(int i = 1; i <= SIZE; i++)
+       	for(int i = 0; i < SIZE; i++)
        	{
-               	printf("%d ", numbers[i - 1]);
-               	if(i % 10 == 0)
+               	printf("%d ", numbers[i]);
+               	if(i % 10 == 9)
                        	putchar('\n');
        	}
 
