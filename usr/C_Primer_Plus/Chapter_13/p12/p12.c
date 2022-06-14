@@ -35,8 +35,11 @@ int main(void)
 		{
 			switch(array[i][j])
 			{
-				case 1:
+				case 0:
 					putchar(' ');
+					break;
+				case 1:
+					putchar('.');
 					break;
 				case 2:
 					putchar('\'');
