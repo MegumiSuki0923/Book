@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
                 fprintf(stderr, "Usage: %s character filename\n", argv[0]);
                 exit(1);
         }
-        
+
         ch = argv[1][0];
         if((fp = fopen(argv[2], "r")) == NULL)
         {
