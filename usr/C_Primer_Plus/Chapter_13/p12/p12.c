@@ -25,7 +25,7 @@ int main(void)
 	{
 		for(j = 0; j < COLS; j++)
 		{
-			fscanf(fp, "%d", array[i][j]);
+			fscanf(fp, "%d", &array[i][j]);
 		}
 	}
 
@@ -66,6 +66,7 @@ int main(void)
 					printf("Sorry, something wrong!.\n");
 			}
 		}
+		putchar('\n');
 	}
 
 	fclose(fp);
