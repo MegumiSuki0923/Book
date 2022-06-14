@@ -21,7 +21,7 @@ int main(void)
         fseek(fp, 0L, SEEK_END);
         len = ftell(fp);
 
-        for(count = 1; count <= len; count++)
+        for(count = 0; count <= len; count++)
         {
                 fseek(fp, -count, SEEK_END);
                 ch = getc(fp);
