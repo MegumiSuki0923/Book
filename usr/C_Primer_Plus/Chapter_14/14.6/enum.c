@@ -7,7 +7,7 @@
 enum spectrum {
 	red, orange, yellow, green, blue, violet
 };
-const char *colors = {
+const char *colors[] = {
     "red", "orange", "yellow", "green", "blue", "violet"
 };
 
