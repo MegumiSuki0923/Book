@@ -15,12 +15,12 @@ struct person {
 	struct name human;
 };
 
-struct person persons = {
+struct person persons[5] = {
 	{302039823, {"Dribble", "Medile", "Flossie"}},
 	{302039824, {"John", "Fitzgerald", "Kennedy"}},
 	{302039825, {"George", "Walker", "Bush"}},
 	{302039826, {"Edware", "Adam", "Davis"}},
-	{302038727, {"John", "Wilson", "Junior"}}
+	{302038727, {"John", "", "Junior"}}
 };
 
 void show(const struct person pt[], int n);
@@ -36,19 +36,21 @@ int main(void)
 
 void show(const struct person pt[], int n)
 {
-	char miname[2];
+	char miname[5][2];
 	int i;
 
 	for(i = 0; i < n; i++)
 	{
-		if(pt[i].human.mname != '\0')
-			miname = '\0'
+		if(pt[i].human.mname[0] == '\0')
+			miname[i][0] = '\0';
 		else
 		{
-			pt[i].human.mname[0] = toupper(pt[i].human.mname[0]);
-			miname = strcat(pt[i].human.mname[0], ".");
+			miname[i][0] = pt[i].human.mname[0] ;
+			miname[i][0] = toupper(miname[i][0]);
+			miname[i][0] = pt[i].human.mname[0] ;
+			strcat(miname[i], ".");
 		}
 
-		printf("%s, %s %s - %d", pt[i].human.fname, pt[i].lname, miname);
+		printf("%s\t, %s %s\t - %d\n", pt[i].human.fname, pt[i].human.lname, miname[i], pt[i].socinum);
 	}
 }
