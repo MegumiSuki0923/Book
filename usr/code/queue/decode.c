@@ -32,11 +32,13 @@ int main(void)
 	i = 0;
 	while(!is_empty())
 	{
-		code[i] = dequeue();
+		code[i++] = dequeue();
 		if(!is_empty())
+		{
 			num = dequeue();
-		if(!is_full())
-			enqueue(num);
+			if(!is_full())
+				enqueue(num);
+		}
 	}
 
 	printf("**********************************\n");

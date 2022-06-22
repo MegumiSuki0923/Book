@@ -87,7 +87,7 @@ int is_palindrom(char *pt)
 	}
 
 	// 开始判断是否为回文
-	while(is_empty())
+	while(!is_empty())
 	{
 		c1 = head_dequeue();
 		if(!is_empty())
