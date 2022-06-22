@@ -27,7 +27,7 @@ int main(void)
 		{
 			n2 = pop();
 			n1 = pop();
-			switch(reverse_polish[i])
+			switch(a[i])
 			{
 				case '+':
 					push(n1 + n2);
