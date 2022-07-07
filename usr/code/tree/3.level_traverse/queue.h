@@ -7,7 +7,7 @@
 #define SIZE    100
 
 void enqueue(struct BinTree_node c);
-char dequeue(void);
+struct BinTree_node dequeue(void);
 int is_empty(void);
 int is_full(void);
 

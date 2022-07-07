@@ -3,7 +3,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "queue.h"
 
 struct BinTree_node {
         unsigned char data;
@@ -15,5 +14,6 @@ void eatline(void);
 void pre_order(const struct BinTree_node *tree);
 void in_order(const struct BinTree_node *tree);
 void pos_order(const struct BinTree_node *tree);
+void level_traverse(struct BinTree_node *tree);
 
 #endif

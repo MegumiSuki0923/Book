@@ -1,4 +1,5 @@
 #include "binary_tree.h"
+#include "queue.h"
 
 struct BinTree_node *create_bintree(void)
 {
@@ -69,3 +70,20 @@ void pos_order(const struct BinTree_node *tree)
         }
 }
 
+// 层次遍历
+void level_traverse(struct BinTree_node *tree)
+{
+        struct BinTree_node node;
+
+        if(tree)
+                enqueue(*tree);
+        while(!is_empty())
+        {
+                if(tree->ltree)
+                        enqueue(*tree->ltree);
+                if(tree->rtree)
+                        enqueue(*tree->rtree);
+        }
+        node = dequeue();
+        printf("%c", node.data);
+}

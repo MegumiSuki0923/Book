@@ -12,7 +12,7 @@ void enqueue(struct BinTree_node c)
 
 struct BinTree_node dequeue(void)
 {
-	char ch;
+	struct BinTree_node ch;
 
 	ch = queue[head];
 	head = (head + 1) % 100;
