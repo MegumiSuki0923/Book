@@ -16,10 +16,14 @@ void in_order(const struct BinTree_node *tree);
 void In_order_Thread(struct BinTree_node *tree);
 void Create_Inorder_Thread(struct BinTree_node *T);
 void Traverse_Inorder_Thread(struct BinTree_node *tree);
+struct BinTree_node *Search_Inorder_Thread(struct BinTree_node *tree, unsigned char ch);
+struct BinTree_node *Prenode_Inorder_Thread(const struct BinTree_node *node);
+struct BinTree_node *Succnode_Inorder_Thread(const struct BinTree_node *node);
 
 int main(void)
 {
-	struct BinTree_node *mytree;
+	struct BinTree_node *mytree, *node, *precursor, *succeed;
+	unsigned char ch;
 
 	printf("Please enter a tree (take place of blank with #):\n");
 	mytree = Create_BinTree();
@@ -33,6 +37,22 @@ int main(void)
 	printf("Now traverse the tree:\n");
 	Traverse_Inorder_Thread(mytree);
 	printf("\n");
+
+	printf("Please enter the node that you want to find it's pre & succ node:\n");
+	while((ch = getchar()) == '\n');
+	node = Search_Inorder_Thread(mytree, ch);
+
+	precursor = Prenode_Inorder_Thread(node);
+	if(precursor == NULL)
+		printf("node %c has no precursor node.\n", node->data);
+	else
+		printf("The precursor is %c\n", precursor->data);
+
+	succeed = Succnode_Inorder_Thread(node);
+	if(succeed == NULL)
+		printf("node %c has no succeed node.\n", node->data);
+	else
+		printf("The succeed is %c\n", succeed->data);
 
 	return 0;
 }
@@ -165,5 +185,49 @@ void Traverse_Inorder_Thread(struct BinTree_node *tree)
 
 struct BinTree_node *Search_Inorder_Thread(struct BinTree_node *tree, unsigned char ch)
 {
-	
+	while(tree)
+	{
+		while(tree->lflag == 0)
+			tree = tree->ltree;
+		if(tree->data == ch)
+			return tree;
+
+		while((tree->rflag == 1) && (tree->rtree))
+		{
+			tree = tree->rtree;
+			if(tree->data == ch) // printf("%c", tree->data);
+				return tree;
+		}
+		tree = tree->rtree;
+	}
+}
+
+struct BinTree_node *Prenode_Inorder_Thread(const struct BinTree_node *node)
+{
+	struct BinTree_node *nd;
+
+	if(node->lflag == 1)
+		return node->ltree;
+	else
+	{
+		nd = node->ltree;
+		while(nd->rflag == 0)
+			nd = nd->rtree;
+		return nd;
+	}
+}
+
+struct BinTree_node *Succnode_Inorder_Thread(const struct BinTree_node *node)
+{
+	struct BinTree_node *nd;
+
+	if(node->rflag == 1)
+		return node->rtree;
+	else
+	{
+		nd = node->rtree;
+		while(nd->ltree == 0)
+			nd = nd->ltree;
+		return nd;
+	}
 }
