@@ -87,3 +87,36 @@ void level_traverse(struct BinTree_node *tree)
                         enqueue(*(node.rtree));
         }
 }
+
+unsigned int depth(const struct BinTree_node *tree)
+{
+	unsigned int l_tree, r_tree;
+
+	if(tree == NULL)
+		return 0;
+	else
+	{
+		l_tree = depth(tree->ltree);
+		r_tree = depth(tree->rtree);
+
+		return (l_tree > r_tree) ? (l_tree + 1) : (r_tree + 1);
+	}
+}
+
+unsigned int leaf(const struct BinTree_node *tree)
+{
+	if(tree == NULL)
+		return 0;
+	else if(tree->ltree == NULL && tree->rtree == NULL)
+		return 1;
+	else
+		return leaf(tree->ltree) + leaf(tree->rtree);
+}
+
+unsigned int node(const struct BinTree_node *tree)
+{
+	if(tree == NULL)
+		return 0;
+	else
+		return node(tree->ltree) + node(tree->rtree) + 1;
+}

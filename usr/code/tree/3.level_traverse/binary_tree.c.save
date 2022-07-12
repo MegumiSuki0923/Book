@@ -87,3 +87,18 @@ void level_traverse(struct BinTree_node *tree)
                         enqueue(*(node.rtree));
         }
 }
+
+unsigned int depth(const struct BinTree_node *tree)
+{
+	unsigned int l_tree, r_tree;
+
+	if(tree)
+	{
+		l_tree = depth(tree->ltree);
+		r_tree = depth(tree->rtree);
+
+		return (l_tree > r_tree) ? (l_tree + 1) : (r_tree + 1);
+	}
+	else
+		return 0;
+}
