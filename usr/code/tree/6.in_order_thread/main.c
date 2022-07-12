@@ -162,3 +162,8 @@ void Traverse_Inorder_Thread(struct BinTree_node *tree)
 		tree = tree->rtree;
 	}
 }
+
+struct BinTree_node *Search_Inorder_Thread(struct BinTree_node *tree, unsigned char ch)
+{
+	
+}
