@@ -15,6 +15,7 @@ void pre_order(const struct BinTree_node *tree);
 void in_order(const struct BinTree_node *tree);
 void In_order_Thread(struct BinTree_node *tree);
 void Create_Inorder_Thread(struct BinTree_node *T);
+void Traverse_Inorder_Thread(struct BinTree_node *tree);
 
 int main(void)
 {
@@ -27,6 +28,11 @@ int main(void)
 	putchar('\n');
 
 	Create_Inorder_Thread(mytree);
+
+	printf("--------------------------------\n");
+	printf("Now traverse the tree:\n");
+	Traverse_Inorder_Thread(mytree);
+	printf("\n");
 
 	return 0;
 }
@@ -142,5 +148,13 @@ void Create_Inorder_Thread(struct BinTree_node *T)
 
 void Traverse_Inorder_Thread(struct BinTree_node *tree)
 {
-	
+	while(tree->lflag == 0)
+		tree = tree->ltree;
+	printf("%c", tree->data);
+
+	if((tree->rflag == 1) && (tree->rtree))
+	{
+		tree = tree->rtree;
+		printf("%c", tree->data);
+	}
 }
