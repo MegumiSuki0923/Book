@@ -148,13 +148,17 @@ void Create_Inorder_Thread(struct BinTree_node *T)
 
 void Traverse_Inorder_Thread(struct BinTree_node *tree)
 {
-	while(tree->lflag == 0)
-		tree = tree->ltree;
-	printf("%c", tree->data);
-
-	if((tree->rflag == 1) && (tree->rtree))
+	while(tree)
 	{
-		tree = tree->rtree;
+		while(tree->lflag == 0)
+			tree = tree->ltree;
 		printf("%c", tree->data);
+
+		while((tree->rflag == 1) && (tree->rtree))
+		{
+			tree = tree->rtree;
+			printf("%c", tree->data);
+		}
+		tree = tree->rtree;
 	}
 }
