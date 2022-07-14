@@ -130,5 +130,9 @@ struct BinTree_node *in_pos_createBinTree(unsigned char *in, unsigned char *pos,
 	while(ch != pos[index])
 		index++;
 	
+	tree->data = ch;
+	tree->ltree = in_pos_createBinTree(in, pos, index);
+	tree->rtree = in_pos_createBinTree(in+index+1, pos+index, len-index-1);
+
 	return tree;
 }
