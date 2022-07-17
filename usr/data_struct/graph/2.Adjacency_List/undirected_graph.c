@@ -28,11 +28,9 @@ void Show_ALG_Graph(const struct ALG_Graph *graph);
 
 int main(void)
 {
-	struct ALG_Graph *d_graph;
-
-	d_graph = Create_ALG_Graph();
-
-	Show_ALG_Graph(d_graph);
+	struct ALG_Graph *ud_graph;
+	ud_graph = Create_ALG_Graph();
+	Show_ALG_Graph(ud_graph);
 
 	return 0;
 }
@@ -72,10 +70,11 @@ struct ALG_Graph *Create_ALG_Graph(void)
 		i = search_index(graph, u);
 		j = search_index(graph, v);
 
-		// 如果可以在节点表找到的话，现在就把邻接点里的数据填充一下
 		if(i != -1 && j != -1)
-			// 这里比较难，为什么要传入这三个参数？
+		{
 			Create_Adj_Node_List(graph, i, j);
+			Create_Adj_Node_List(graph, j, i);
+		}
 		else
 		{
 			printf("The character you entered is incorrect, please try again!\n");
