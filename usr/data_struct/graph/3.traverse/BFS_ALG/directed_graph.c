@@ -26,6 +26,7 @@ struct ALG_Graph *Create_ALG_Graph(void);
 int search_index(const struct ALG_Graph *graph, char ch);
 void Create_Adj_Node_List(struct ALG_Graph *graph, int i, int j);
 void Show_ALG_Graph(const struct ALG_Graph *graph);
+void BFS_ALG(struct ALG_Graph *graph);
 
 int main(void)
 {
@@ -34,6 +35,7 @@ int main(void)
 	Show_ALG_Graph(d_graph);
 
 	printf("Traverse the graph through BFS:\n");
+	BFS_ALG(d_graph);
 
 	return 0;
 }
@@ -130,4 +132,41 @@ void Show_ALG_Graph(const struct ALG_Graph *graph)
 		}
 		printf("\n");
 	}
+}
+
+void BFS_ALG(struct ALG_Graph *graph)
+{
+	// 在用变量初始化数组时，不能进行初始化赋值，所以要用一个循环置0
+	int visited[graph->vex_num];
+	int i;
+	struct AdjNode *p;
+	int n;
+
+	for(i = 0; i < graph->vex_num; i++)
+		visited[i] = 0;
+
+
+	enqueue(0);
+	visited[0] = 1;
+	printf("%c ", graph->Vex[0].ch);
+
+	while(!is_empty())
+	{
+		i = dequeue();
+		p = graph->Vex[i].first;
+
+		while(p)
+		{
+			n = p->index;
+			if(visited[n] == 0)
+			{
+				enqueue(n);
+				visited[n] = 1;
+				printf("%c ", graph->Vex[n].ch);
+			}
+			p = p->next;
+		}
+
+	}
+	printf("\n");
 }
