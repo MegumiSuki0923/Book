@@ -51,7 +51,7 @@ int find_first(const struct HuffmanTree H[], int n)
 	int ans = 1;
 	for(i = 1; i < 2*n; i++)
 	{
-		if(H[i].weight < min)
+		if(H[i].weight < min && H[i].weight > 0)
 		{
 			ans = i;
 			min = H[i].weight;
