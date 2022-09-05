@@ -1,0 +1,33 @@
+#ifndef __QUEUE_H__
+#define __QUEUE_H__
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+template<class Item>
+class Queue
+{
+	private:
+		enum{Q_SIZE = 10};
+		//struct Node{Item item; struct Node *next;};
+		class Node
+		{
+			private:
+				Item item;
+				Node *next;
+		};
+		Node *front;
+		Node *rear;
+		int items;
+		const int qsize;
+	public:
+		Queue(int qs = Q_SIZE);
+		~Queue();
+		bool isempty() const;
+		bool isfull() const;
+		int queuecount() const;
+		bool enqueue(const Item &item);
+		bool dequeue(Item &item);
+};

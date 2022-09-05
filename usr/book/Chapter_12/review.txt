@@ -1,0 +1,35 @@
+4.
+class Nifty
+{
+private:
+	char *personality;
+	int talents;
+public:
+	Nifty();
+	Nifty(const char *s);
+	~Nifty() {delete []personality;}
+	
+	friend ostream &operator<<(ostream &os, const Nifty &n);
+}
+
+Nifty::Nifty
+{
+	personality = NULL;
+	talents = 0;
+}
+
+Nifty::Nifty(const char *s)
+{
+	personality = new char[strlen(s) + 1];
+	strcpy(personality, s);
+	talents = 0;
+}
+
+ostream &operator<<(ostream &os, const Nifty &n)
+{
+	os << n.personality << endl;
+	os << n.talents << endl;
+	return os;
+}
+
+5.

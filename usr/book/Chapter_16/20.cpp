@@ -1,0 +1,32 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <valarray>
+
+using namespace std;
+
+int main(void)
+{
+	double temp;
+
+	vector<double> data;
+	cout << "Enter some double number (<= 0 to quit): ";
+	while(cin >> temp && temp > 0)
+		data.push_back(temp);
+
+	sort(data.begin(), data.end());
+
+	int i;
+	int size = data.size();
+	valarray<double> numbers(size);
+	for(i = 0; i < size; i++)
+		numbers[i] = data[i];
+
+	valarray<double> result(size);
+	result = numbers + 2.0;
+
+	for(i = 0; i < size; i++)
+		cout << numbers[i] << ": " << result[i] << endl;
+
+	return 0;
+}

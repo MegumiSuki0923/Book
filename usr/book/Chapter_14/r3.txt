@@ -1,0 +1,18 @@
+Gloam::Gloam(int g, const char *s) : glip(g), Frabjous(s)
+{
+	私有继承:使用类名来调用基类的构造函数: Frabjous(s)
+}
+
+Gloam::Gloam(int g, const Frabjous &f) : glip(g), Frabjous(f)
+{
+	同上
+}
+
+void Gloam::tell()
+{
+	cout << "glip: " << glip << endl;
+
+	//包含关系时:使用对象名来调用基类函数
+	//但是使用私有继承时,要使用类名和作用域解析运算符
+	Frabjous::tell();
+}
